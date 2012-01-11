@@ -1,10 +1,10 @@
 Package: M3
 Type: Package
 Title: Reading M3 files
-Version: 0.1
-Date: 2011-03-03
-Author: Jenise Swall <Swall.Jenise@epa.gov>
-Maintainer: Jenise Swall <Swall.Jenise@epa.gov>
+Version: 0.2
+Date: 2012-01-11
+Author: Jenise Swall <jswall@vcu.edu>
+Maintainer: Jenise Swall <jswall@vcu.edu>
 Depends: ncdf4,rgdal,maps
 Description: This package contains functions to read in and manipulate
         air quality model output from Models3-formatted files.  This
@@ -12,6 +12,6 @@ Description: This package contains functions to read in and manipulate
         model.
 License: Unlimited
 LazyLoad: yes
-Packaged: 2011-06-15 14:08:42 UTC; swall
+Packaged: 2012-01-12 14:21:15 UTC; jenise
 Repository: CRAN
-Date/Publication: 2011-06-20 19:18:02
+Date/Publication: 2012-01-12 16:32:27

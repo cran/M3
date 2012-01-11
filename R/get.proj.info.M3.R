@@ -1,9 +1,9 @@
 ## ###########################################################
-## Purpose: Pull information about the projection used from a
+## PURPOSE: Pull information about the projection used from a
 ##   Models3-formatted file.  Build a string describing the projection
 ##   which can be used by the R package rgdal.
 ##
-## Input:
+## INPUT:
 ##   file: File name of Models3-formatted file whose projection we
 ##     want to use.
 ##   earth.radius: Assumes a spherical earth, but note that radius may
@@ -13,18 +13,18 @@
 ##     radius used in previous versions of the Models3 I/O API and
 ##     in previous R packages supplied by Battelle.
 ##
-## Returns: String describing model projection, which can be utilized
+## RETURNS: String describing model projection, which can be utilized
 ##   by the rgdal package in R (for projections to and from
 ##   longitude/latitude, for example).
 ##
-## Assumes:
+## ASSUMES:
 ##   1. Your Models3-formatted file uses a Lambert conic conformal or
 ##      polar stereographic projection, or is gridded in
 ##      longitude/latitude coordinates.
 ##   2. Availability of R package ncdf4.
 ##
 ## 
-## Notes:
+## NOTES:
 ##   1. The R package rgdal depends on the PROJ.4 cartographic
 ##      projections library (http://trac.osgeo.org/proj/).  The format
 ##      of the string must therefore be in a style acceptable to
@@ -34,6 +34,10 @@
 ##      http://www.baronams.com/products/ioapi/GRIDS.html.
 ##   3. Projection info is stored in global attributes of the
 ##      Models3-formatted file.
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-06-02
 ## ###########################################################
 get.proj.info.M3 <- function(file, earth.radius=6370000){
 

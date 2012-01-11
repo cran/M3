@@ -8,7 +8,7 @@
 
 
 \usage{
-get.map.lines.M3.proj(file, region = "state", units, ...)
+get.map.lines.M3.proj(file, database = "state", units, ...)
 }
 
 
@@ -16,10 +16,13 @@ get.map.lines.M3.proj(file, region = "state", units, ...)
   \item{file}{File name of Models3-formatted file providing the model
     projection.
   }
-  \item{region}{Geogrpaphical database to use.  Choices are "state"
-    (default), "world", "USA", "county", and any other databases which
-    are included with the \pkg{maps} package and which can be passed to
-    the \code{\link[maps]{map}} function.  Default is "state".
+  \item{database}{Geographical database to use.  Choices include
+    \dQuote{state} (default), \dQuote{world}, \dQuote{canmex}, etc.
+    Use \dQuote{canmex} to get the outlines of Canada and Mexico,
+    without the border lines between Canada/USA or USA/Mexico.  The
+    other choices (\dQuote{state}, \dQuote{world}, etc.)
+    are the names of databases included with the \pkg{maps} package.
+    (See the \code{\link[maps]{map}} function.)  Default is \dQuote{state}.
   }
   \item{units}{Units for coordinates of grid rows or columns.  Must be
     one of \dQuote{m}, \dQuote{km}, or \dQuote{deg}.  If
@@ -62,7 +65,8 @@ get.map.lines.M3.proj(file, region = "state", units, ...)
 }
 
 
-\seealso{\code{\link{get.proj.info.M3}}, \code{\link[maps]{map}}, \code{\link[rgdal]{project}}
+\seealso{\code{\link{get.proj.info.M3}}, \code{\link[maps]{map}},
+  \code{\link[rgdal]{project}}, \code{\link{get.canmex.bds}}
 }
 
 
@@ -78,7 +82,7 @@ image(elev$x.cell.ctr, elev$y.cell.ctr, elev$data[,,1],
       zlim=range(elev$data[,,1]), col=heat.colors(15))
 
 ## Superimpose national boundaries on the plot
-nat.bds <- get.map.lines.M3.proj(file=polar.file, region="world")$coords
+nat.bds <- get.map.lines.M3.proj(file=polar.file, database="world")$coords
 lines(nat.bds)
 
 
@@ -93,4 +97,9 @@ image(subset.elev$x.cell.ctr, subset.elev$y.cell.ctr,
 ##  Superimpose U.S. state boundaries on the plot.
 state.bds <- get.map.lines.M3.proj(file=polar.file)$coords
 lines(state.bds)
+## Superimpose Mexico national outline on the plot, without overriding
+## state boundaries along the Mexican border (since they are given by
+## higher-resolution "state" database).
+canmex.bds <- get.map.lines.M3.proj(file=polar.file, "canmex")$coords
+lines(canmex.bds)
 }

@@ -1,8 +1,8 @@
 ## ###########################################################
-## Purpose: Subset the list resulting from a get.M3.var()
-##          function call.
+## PURPOSE: Subset the list resulting from a get.M3.var()
+##   function call.
 ##
-## Input:
+## INPUT:
 ##   var.info: list given by function get.M3.var().
 ##   llx, urx: Lower and upper x-coordinate bounds for the subsetted
 ##     grid in units appropriate to the model projection.  Defaults
@@ -19,17 +19,21 @@
 ##     subset if any portion of the grid cell's area falls within the
 ##     given bounds.
 ##
-## Returns: Subsetted list, with appropriate elements altered to
+## RETURNS: Subsetted list, with appropriate elements altered to
 ##   reflect the subsetting that has taken place.
 ##
 ##
-## Note: If the user wants to subset the variable by row, column,
+## NOTE: If the user wants to subset the variable by row, column,
 ##   layer, or time step number, this can be accomplished easily
 ##   using standard R methods for subsetting the array of variable
 ##   values.  This function was written to help the user who does not
 ##   know the row, column, or time step numbers, but who wants to subset
 ##   according to human-readable dates and times or according to
 ##   projection units.
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-05-20
 ## ###########################################################
 var.subset <- function(var.info, llx, urx, lly, ury,
                        ldatetime, udatetime, hz.strict=TRUE){

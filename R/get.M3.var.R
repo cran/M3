@@ -1,7 +1,7 @@
 ## ###########################################################
-## Purpose: Read in variable values from Models3-formatted files.
+## PURPOSE: Read in variable values from Models3-formatted files.
 ##
-## Input:
+## INPUT:
 ##   file: name of Models3-formatted file to be read
 ##   var: name (character string) or number (positive integer) of
 ##     variable whose values are to be read
@@ -23,7 +23,7 @@
 ##     could specify meters ("m").
 ##
 ##
-## Returns: List with several elements.
+## RETURNS: List with several elements.
 ##   Element "data" holds the actual variable values in a 4D (or 3D,
 ##     in the case of time-independent files) array.  Dimensions are
 ##     columns, rows, layers, date-time steps.
@@ -39,8 +39,12 @@
 ##     variable, if the file is not time-independent.  For
 ##     time-independent files, element datetime is set to NULL.
 ##
-## Assumes: The Models3-formatted file is either time-independent or
+## ASSUMES: The Models3-formatted file is either time-independent or
 ##   time-stepped.  It cannot be of type circular-buffer.
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-06-02
 ## ###########################################################
 get.M3.var <- function(file, var, lcol, ucol, lrow, urow,
                             llay, ulay, ldatetime, udatetime,

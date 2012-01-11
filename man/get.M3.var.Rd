@@ -137,7 +137,7 @@ image(elev$x.cell.ctr, elev$y.cell.ctr, elev$data[,,1],
       zlim=range(elev$data[,,1]), col=topo.colors(20))
 ## Find national boundaries on this projection, superimpose them on
 ## the plot.
-world.bds <- get.map.lines.M3.proj(file=polar.file, region="world")$coords
+world.bds <- get.map.lines.M3.proj(file=polar.file, database="world")$coords
 lines(world.bds)
 
 ## Subset to a smaller geographic area in southwestern U.S.

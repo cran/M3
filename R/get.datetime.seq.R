@@ -1,16 +1,20 @@
 ## ###########################################################
-## Purpose: Read the date-time steps in the Models3-formatted file.
+## PURPOSE: Read the date-time steps in the Models3-formatted file.
 ##   Put these into datetime format.
 ##
-## Input:
+## INPUT:
 ##   file: File name of Models3-formatted file of interest.
 ##
-## Returns: List of datetimes included in the Models3-formatted file.
+## RETURNS: List of datetimes included in the Models3-formatted file.
 ##
-## Assumes: This code assumes that the time step is not negative.
-## (For instance, the Models3 I/OAPI does allow for negative time
-## steps, but these negative time steps will NOT be handled properly
-## by this function.)
+## ASSUMES: This code assumes that the time step is not negative.
+##   (For instance, the Models3 I/OAPI does allow for negative time
+##   steps, but these negative time steps will NOT be handled properly
+##   by this function.)
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-06-02
 ## ###########################################################
 get.datetime.seq <- function(file){
 

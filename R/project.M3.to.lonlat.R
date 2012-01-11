@@ -1,7 +1,7 @@
 ## ###########################################################
-## Purpose: Project coordinates from model units to longitude/latitude.
+## PURPOSE: Project coordinates from model units to longitude/latitude.
 ##
-## Inputs:
+## INPUTS:
 ##   x: x-coordinates of points in model units from project in "file"
 ##   y: y-coordinates of points in model units from project in "file"
 ##   file: File name of Models3-formatted file which contains
@@ -14,14 +14,18 @@
 ##     In this case, the only relevant argument would be the earth
 ##     radius to use for the projection in "file".
 ##
-## Returns: A list containing the elements "coords" and "units".  The
+## RETURNS: A list containing the elements "coords" and "units".  The
 ##   element "coords" contains a matrix of coordinates in
 ##   longitude/latitude.  The element "units" contains the string "deg"
 ##   to designate that "coords" is in degrees of longitude/latitude.
 ##
-## Assumes:
+## ASSUMES:
 ##   1. Availability of R packages ncdf4 and rgdal.
 ##   2. Projection is lambert conic conformal or polar stereographic. 
+##
+##
+## REVISION HISTORY:
+##   Original release: 2011-06-02
 ## ###########################################################
 project.M3.to.lonlat <- function(x, y, file, units, ...){
   

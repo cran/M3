@@ -1,7 +1,7 @@
 ## ###########################################################
-## Purpose: Project coordinates from longitude/latitude to model units.
+## PURPOSE: Project coordinates from longitude/latitude to model units.
 ##
-## Inputs:
+## INPUTS:
 ##   longitude: vector of longitudes for the points to be projected
 ##   latitude: vector of latitudes for the points to be projected
 ##   file: File name of Models3-formatted file giving the desired model
@@ -16,9 +16,13 @@
 ##     In this case, the only relevant argument would be the earth
 ##     radius to use when doing the projections.
 ##
-## Returns: A list containing two elements "coords" and "units".  The
+## RETURNS: A list containing two elements "coords" and "units".  The
 ##   element "coords" contains a matrix with the projected coordinates.
 ##   The element "units" contains the units of the coordinates ("km" or "m").
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-05-19
 ## ###########################################################
 project.lonlat.to.M3 <- function(longitude, latitude, file,
                                       units, ...){

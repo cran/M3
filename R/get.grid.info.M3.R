@@ -1,20 +1,24 @@
 ## ###########################################################
-## Purpose: Pull information about the grid used from the
+## PURPOSE: Pull information about the grid used from the
 ##   Models3-formatted file.  This includes information such as the
 ##   origin of the grid (lower left corner coordinates in grid units).
 ##
-## Input:
+## INPUT:
 ##   file: File name of Models3-formatted file whose projection we
 ##     want to use.
 ##
-## Returns: List containing information about the grid, including the
+## RETURNS: List containing information about the grid, including the
 ##   origin point of the grid (lower left coordinates in grid units),
 ##   projection, grid cell spacing, etc.
 ##
 ## 
-## Notes:
+## NOTES:
 ##   Information about grid cell size, extent of grid, etc. is stored
 ##   in global attributes of the Models3-formatted file.
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-06-02
 ## ###########################################################
 get.grid.info.M3 <- function(file){
 

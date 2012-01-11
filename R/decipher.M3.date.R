@@ -1,15 +1,19 @@
 ## ###########################################################
-## Purpose: Decipher Models3 date format (YYYYDDD) into R's Date
-## class.
+## PURPOSE: Decipher Models3 date format (YYYYDDD) into R's Date
+##   class.
 ##
-## Input: Models3 date (numeric) in the format YYYYDDD, where DDD is a
-## Julian day (since the beginning of YYYY).
+## INPUT: Models3 date (numeric) in the format YYYYDDD, where DDD is
+##   a Julian day (since the beginning of YYYY).
 ##
-## Returns: Starting date YYYYDDD in R's Date class.
+## RETURNS: Starting date YYYYDDD in R's Date class.
 ##
 ##
-## Note: The Models3 date is an integer, so we can't just extract the
-## first 4 characters, next 3 characters, etc.
+## NOTE: The Models3 date is an integer, so we can't just extract the
+##   first 4 characters, next 3 characters, etc.
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-05-19
 ## ###########################################################
 decipher.M3.date <- function(M3.date){
 

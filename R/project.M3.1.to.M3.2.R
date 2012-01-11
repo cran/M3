@@ -1,9 +1,9 @@
 ## ###########################################################
-## Purpose: Project coordinates based on projection in first
+## PURPOSE: Project coordinates based on projection in first
 ##   Models3-formatted file to the projection given in second
 ##   Models3-formatted file.
 ##
-## Inputs:
+## INPUTS:
 ##   x: x-coordinates in model units from projection in from.file
 ##   y: y-coordinates in model units from projection in from.file
 ##   from.file: Name of Models3-formatted file with the model
@@ -16,15 +16,19 @@
 ##     In this case, the only relevant argument would be the earth
 ##     radius to use when doing the projections.
 ##
-## Returns: A list containing two elements "coords" and "units".  The
+## RETURNS: A list containing two elements "coords" and "units".  The
 ##   element "coords" contains a matrix of coordinates using projection
 ##   in to.file.  The element "units" contains the units of the
 ##   coordinates, which are the same as those specified for input "x"
 ##   and "y".
 ##
-## Assumes:
+## ASSUMES:
 ##   1. Availability of R packages ncdf4 and rgdal.
 ##   2. Projections are lambert conic conformal or polar stereographic.
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-06-02
 ## ###########################################################
 project.M3.1.to.M3.2 <- function(x, y, from.file, to.file, units, ...){
 

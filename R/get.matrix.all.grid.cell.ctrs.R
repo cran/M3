@@ -1,14 +1,14 @@
 ## ###########################################################
-## Purpose: Find the locations of the grid cell centers in grid
-## units.
+## PURPOSE: Find the locations of the grid cell centers in grid
+##   units.
 ##
-## Input:
+## INPUT:
 ##   file: File name of Models3-formatted file of interest.
 ##   units: "m" (meters), "km" (kilometers), or "deg" (degrees).  If
 ##     unspecified, the default is "deg" if the file has a
 ##     longitude/latitude based grid, and "km" otherwise.
 ##
-## Returns: A list containing two elements "coords" and "units".  The
+## RETURNS: A list containing two elements "coords" and "units".  The
 ##   element "coords" contains a matrix with number of rows equal to the
 ##   number of grid cells and two columns.  The first column contains the
 ##   x-coordinate of the grid cell centers; the second column contains
@@ -16,6 +16,10 @@
 ##   listed in order such that the x-coordinates are changing faster
 ##   than the y-coordinates.  The element "units" contains the units of
 ##   the coordinates (can be "km", "m", or "deg").
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-05-19
 ## ###########################################################
 get.matrix.all.grid.cell.ctrs <- function(file, units){
 

@@ -1,11 +1,11 @@
 ## ###########################################################
-## Purpose: Get map lines in the model projection units.
+## PURPOSE: Get map lines in the model projection units.
 ## 
-## Input:
+## INPUT:
 ##   file: File name of Models3-formatted file providing the model
 ##     projection.
-##   region: Geogrpaphical database to use.  Choices are "world",
-##     "USA", "state", and "county".  Default is "state".
+##   database: Geogrpaphical database to use.  Choices are "world",
+##     "usa", "state", and "county".  Default is "state".
 ##   units:  Units to be used for the projected coordinates; that is,
 ##     either "m" (meters) or "km" (kilometers). The option "deg" does
 ##     not make sense because we would not need to project coordinates
@@ -16,19 +16,28 @@
 ##     In this case, the only relevant argument would be the earth
 ##     radius to use when doing the projections.
 ##
-## Returns: A list containing two elements "coords" and "units", The
+## RETURNS: A list containing two elements "coords" and "units", The
 ##   element "coords" contains a matrix with the map lines in the
 ##   projection coordinates.  The element "units" contains the units
 ##   of the coordinates ("km" or "m").
 ##
-## Assumes:
+## ASSUMES:
 ##   Availability of R packages maps, ncdf4, and rgdal.
 ##
 ##
-## Note: The model projection units are of the sort derived in the
-##       function proj.lonlat.to.M3 in above code.
+## NOTE: The model projection units are of the sort derived in the
+##       function proj.lonlat.to.M3().
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-06-02
+##   
+##   2012-01-11 (JLS): Added additional option of "canmex" for
+##     database argument.  Changed argument "region" to argument named
+##     "database" for compatibility with the map() function in the "maps"
+##     package.
 ## ###########################################################
-get.map.lines.M3.proj <- function(file, region="state", units, ...){
+get.map.lines.M3.proj <- function(file, database="state", units, ...){
 
   ## Form projection string describing the projection in the given
   ## Models3 file.
@@ -43,10 +52,19 @@ get.map.lines.M3.proj <- function(file, region="state", units, ...){
                " is gridded on long/lat system.", sep=""))
 
 
-  ## Get the coords of the boundary lines in lat/lon.
-  raw.map.lonlat <- map(region, plot=FALSE, resolution=0)
-  map.lonlat <- cbind(raw.map.lonlat$x, raw.map.lonlat$y)
-  rm(raw.map.lonlat)
+  ## Get the coords of the boundary lines in lat/lon.  If the user
+  ## chooses a database like "state", "world", "usa", etc., then we
+  ## can get the boundary lines using map() in the "maps" package.  If
+  ## the user chooses "canmex", which is not an option for map(), we
+  ## call a separate piece of code.
+  if (database == "canmex")
+    map.lonlat <- get.canmex.bds()
+  else{
+    raw.map.lonlat <- map(database, plot=FALSE, resolution=0)
+    map.lonlat <- cbind(raw.map.lonlat$x, raw.map.lonlat$y)
+    rm(raw.map.lonlat)
+  }
+
 
   ## We want to re-project these map boundaries onto the projection that
   ## provided by the specified Models3 file.

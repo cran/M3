@@ -1,8 +1,8 @@
 ## ###########################################################
-## Purpose: For either the rows or the columns, return the coordinates
+## PURPOSE: For either the rows or the columns, return the coordinates
 ##   of the centers or the edges of the grid cells.
 ##
-## Input:
+## INPUT:
 ##   file: File name of Models3-formatted file of interest.
 ##   dimension: User chooses to get information for either rows
 ##     ("row") or columns ("column" or "col").
@@ -12,7 +12,7 @@
 ##     unspecified, the default is "deg" if the file has a
 ##     longitude/latitude based grid, and "km" otherwise.
 ##
-## Returns: A list containing two elements, "coords" and "units".  If
+## RETURNS: A list containing two elements, "coords" and "units".  If
 ##   dimension is "row", return as element "coords" a vector
 ##   containing the y-coordinate of the center, left ("lower"), or
 ##   right ("upper") edge of each row, depending on the value of
@@ -22,8 +22,12 @@
 ##   the value of argument "position".  In both cases, return as element
 ##   "units" the units of the coordinates (can be "km", "m", or "deg").
 ##
-## Assumes:
+## ASSUMES:
 ##   Availability of function get.grid.info.M3().
+##
+##
+## REVISION HISTORY:
+##   Original release: Jenise Swall, 2011-05-20
 ## ###########################################################
 get.coord.for.dimension <- function(file, dimension, position="ctr",
                                     units){

@@ -1,20 +1,24 @@
 ## ###########################################################
-## Purpose: Decipher Models3 time format (HHMMSS) into hours, minutes,
-## and seconds.
+## PURPOSE: Decipher Models3 time format (HHMMSS) into hours, minutes,
+##   and seconds.
 ##
-## Input: Models3 time (numeric) in the format HHMMSS
+## INPUT: Models3 time (numeric) in the format HHMMSS
 ##
-## Returns: List with hrs (hours), mins (minutes), and secs (seconds)
-## components.
+## RETURNS: List with hrs (hours), mins (minutes), and secs (seconds)
+##   components.
 ##
-## Assumes: This code assumes that the time is not negative.  (For
-## instance, the Models3 I/OAPI does allow for negative time steps,
-## but these negative time steps will NOT be handled properly by this
-## function.)
+## ASSUMES: This code assumes that the time is not negative.  (For
+##   instance, the Models3 I/OAPI does allow for negative time steps,
+##   but these negative time steps will NOT be handled properly by
+##   this function.)
 ##
-## Note: The Models3 time is an integer, so we can't just extract the
-## first 2 characters, next 2 characters, etc.  If the time step is
-## one hour, then the time we extract will be 100, not 000100.
+## NOTE: The Models3 time is an integer, so we can't just extract the
+##   first 2 characters, next 2 characters, etc.  If the time step is
+##   one hour, then the time we extract will be 100, not 000100.
+##
+##
+## RELEASE HISTORY:
+##   Original release: Jenise Swall, 2011-05-19
 ## ###########################################################
 decipher.M3.time <- function(M3.time){
 
