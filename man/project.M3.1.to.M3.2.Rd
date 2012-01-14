@@ -102,7 +102,7 @@ polar.oz <- project.M3.1.to.M3.2(east.ctrs[,1], east.ctrs[,2],
 
 ## Plot the cells centers and boundary lines on the polar
 ## stereographic projection.
-X11()
+dev.new()
 plot(polar.oz$coords)
 polar.state.bds <- get.map.lines.M3.proj(file=polar.file)$coords
 lines(polar.state.bds, col="darkblue")

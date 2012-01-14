@@ -5,7 +5,8 @@
 ##   file: File name of Models3-formatted file providing the model
 ##     projection.
 ##   database: Geogrpaphical database to use.  Choices are "world",
-##     "usa", "state", and "county".  Default is "state".
+##     "canusamex", "worldHires", "usa", "state", and "county".
+##     Default is "state".
 ##   units:  Units to be used for the projected coordinates; that is,
 ##     either "m" (meters) or "km" (kilometers). The option "deg" does
 ##     not make sense because we would not need to project coordinates
@@ -16,13 +17,16 @@
 ##     In this case, the only relevant argument would be the earth
 ##     radius to use when doing the projections.
 ##
+##
 ## RETURNS: A list containing two elements "coords" and "units", The
 ##   element "coords" contains a matrix with the map lines in the
 ##   projection coordinates.  The element "units" contains the units
 ##   of the coordinates ("km" or "m").
 ##
+## 
 ## ASSUMES:
-##   Availability of R packages maps, ncdf4, and rgdal.
+##   Availability of R packages maps, mapdata, ncdf4, and rgdal.  Also
+##   uses function get.canusamex.bds in this package.
 ##
 ##
 ## NOTE: The model projection units are of the sort derived in the
@@ -36,6 +40,13 @@
 ##     database argument.  Changed argument "region" to argument named
 ##     "database" for compatibility with the map() function in the "maps"
 ##     package.
+##
+##   2012-05-15 (JLS): Changed option "canmex" to "canusmex" and added
+##     option "WorldHires".  Both of these use the high-resolution
+##     database in package "mapdata" to get better national boundardies
+##     (and natural features like coastlines).  The old option "canmex"
+##     only used the the relative low-resolution world maps for Canada
+##     and Mexico, and was a bit more primitive.
 ## ###########################################################
 get.map.lines.M3.proj <- function(file, database="state", units, ...){
 
@@ -57,8 +68,8 @@ get.map.lines.M3.proj <- function(file, database="state", units, ...){
   ## can get the boundary lines using map() in the "maps" package.  If
   ## the user chooses "canmex", which is not an option for map(), we
   ## call a separate piece of code.
-  if (database == "canmex")
-    map.lonlat <- get.canmex.bds()
+  if (database == "canusamex")
+    map.lonlat <- get.canusamex.bds()
   else{
     raw.map.lonlat <- map(database, plot=FALSE, resolution=0)
     map.lonlat <- cbind(raw.map.lonlat$x, raw.map.lonlat$y)

@@ -78,7 +78,7 @@ lcc.file <- system.file("extdata/ozone_lcc.ncf", package="M3")
 lcc.capitals <- project.lonlat.to.M3(capitals$x, capitals$y, lcc.file)
 
 ## Put these on a new plot.
-X11()
+dev.new()
 plot(lcc.capitals$coords)
 ## Project state lines to this projection.
 lcc.map <- get.map.lines.M3.proj(lcc.file)

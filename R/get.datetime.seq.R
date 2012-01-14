@@ -62,7 +62,7 @@ get.datetime.seq <- function(file){
   
   ## Now get a sequence.
   datetime.seq <- seq.POSIXt(from=start.datetime, by=tstep.in.secs,
-                             length=num.time.steps)
+                             length.out=num.time.steps)
 
   
   ## Close the Models3 file.
