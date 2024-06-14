@@ -4,7 +4,7 @@
 \title{Obtain map boundaries for Canada, USA, and Mexico}
 
 \description{Obtain map boundaries of Canada, USA, and Mexico, including
-  state boundaries, in longitude/latitude.
+  state boundaries, in longitude and latitude coordinates.
 }
 
 
@@ -12,23 +12,15 @@
 }
 
 
-\details{This function depends on the \pkg{maps} and \pkg{mapdata}
-  packages to get the appropriate map boundary lines.  The function uses
-  the high-resolution boundaries (\dQuote{worldHires} database) in the
-  \pkg{mapdata} to find the coastlines and national boundaries for
-  Canada, the USA, and Mexico.  Then, it appends the state boundaries
-  (in \dQuote{state} from the \pkg{maps} package), removing the
-  coastlines and national boundaries so that they don't conflict with
-  the higher-resolution ones (from \dQuote{worldHires}). This allows the
-  user to draw the national and state boundaries with high-resolution
-  and without with conflicting boundaries yielded by the \dQuote{world}
-  database.  This function is intended to be called by the function
-  \code{\link{get.map.lines.M3.proj}}; in practice, it would rarely be
-  called directly by the user.
+\details{Retrieves a data frame containing the coordinates (longitude and
+latitude) for drawing the boundaries of Canada, USA (including states), and
+Mexico.  This function is intended to be called by the function
+  \code{\link{get.map.lines.M3.proj}}; in practice, it should rarely be called
+  directly by the user.
 }
 
 
-\value{Matrix specifying the polylines needed to plot the national
+\value{Data frame specifying the polylines needed to plot the national
   (Canada, USA, Mexico) and state outlines. This matrix has two columns,
   with longitude in the first column and latitude in the second.  }
 
